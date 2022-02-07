@@ -10,12 +10,8 @@ Collection of scipts and methods to create a pangenome transposable element (TE)
 | PI: | Patrick Edger | [Lab GitHub](https://github.com/EdgerLab) | <edgerpat@msu.edu> |
 
 # Requirements:
-TODO: Update, may use v2.0.0
-We used EDTA v1.9.6 to generate our TE datasets.
+We used EDTA v2.0.0 to generate our TE datasets.
+Python package requirements can be found at `requirements/python_requirements.txt`
 
 # Create a Pangenome TE Library/Annotation (EDTA):
-
-# Run TE Density on Each Genome:
-
-# Analyze TE Differences Amongst Candidate Genes:
 
