@@ -1,0 +1,49 @@
+#!/bin/bash -login
+#SBATCH -J Stanley_Ind_LIB
+#SBATCH --time=150:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=16
+#SBATCH --mem-per-cpu=16G
+#SBATCH --mail-user=teresisc@msu.edu
+#SBATCH --mail-type=ALL
+#SBATCH --output=/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/logs/Cranberry/stanley.out
+#--------------------------------------------------------
+# Supplementary Info
+begin=`date +%s`
+echo $HOSTNAME
+echo "My Task ID:" $SLURM_ARRAY_TASK_ID
+# Define base paths
+EDTA_DIR=/mnt/research/edgerpat_lab/EDTA
+OUT_DATA_DIR=/mnt/scratch/teresisc/Blueberry_Pangenome_TE_Analysis/results
+#--------------------------------------------------------
+# Define input paths
+GENOME_NAME="Stanley_US92"
+echo $GENOME_NAME
+#--------------------------------------------------------
+# Load Modules
+module purge
+module load Conda/3
+conda activate EDTA  # activate the conda environment of packages
+#--------------------------------------------------------
+# Run EDTA
+echo "Declaring output paths and running EDTA"
+GENOME_OUT_DIR=$OUT_DATA_DIR/Cranberry/$GENOME_NAME/Annotation
+echo "mkdir-ing " $GENOME_OUT_DIR && mkdir -p $GENOME_OUT_DIR
+echo "cd-ing into " $GENOME_OUT_DIR && cd $GENOME_OUT_DIR
+echo "Removing recursively... " && rm -rf *
+# Run EDTA
+perl $EDTA_DIR/EDTA.pl --genome /mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Cranberry/Stanley_US92/Stanley_US92_NewNames.fasta \
+--cds  /mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Cranberry/Stanley_US92/Stanley_US92_CDS_NewNames.fasta \
+--sensitive 1 \
+--threads 12 \
+--overwrite 1
+#--------------------------------------------------------
+echo "Copying the library file and tar gz-ing the annotation folder"
+cp ${GENOME_OUT_DIR}/${GENOME_NAME}_NewNames.fasta.mod.EDTA.TElib.fa ${GENOME_OUT_DIR}/../${GENOME_NAME}_NewNames.fasta.mod.EDTA.TElib.fa
+cd ${GENOME_OUT_DIR}/../
+tar -zcf ${GENOME_OUT_DIR}.tar.gz $GENOME_OUT_DIR && rm -rf $GENOME_OUT_DIR
+#--------------------------------------------------------
+# Final Supplementary Info
+end=`date +%s`
+elapsed=`expr $end - $begin`
+echo Time taken: $elapsed
