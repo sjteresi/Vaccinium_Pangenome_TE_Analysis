@@ -1,0 +1,44 @@
+#!/bin/bash -login
+#SBATCH -J Individual_Library_Gen
+#SBATCH --time=120:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=15
+#SBATCH --mem-per-cpu=6G
+#SBATCH --array=1-22
+#SBATCH --output=/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/logs/logs_%A_%a.out
+#--------------------------------------------------------
+# Supplementary Info
+begin=`date +%s`
+echo $HOSTNAME
+echo "My Task ID:" $SLURM_ARRAY_TASK_ID
+# Define base paths
+EDTA_DIR=/mnt/research/edgerpat_lab/EDTA
+OUT_DATA_DIR=/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/
+FASTA_LIST=/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/file_paths.txt
+#--------------------------------------------------------
+# Define input paths
+SECOND=$((SLURM_ARRAY_TASK_ID*2))
+FIRST="$(($SECOND - 1))"
+LINE_1_CDS=$(sed -n "$FIRST"p $FASTA_LIST)
+LINE_2_REG=$(sed -n "$SECOND"p $FASTA_LIST)
+FILE_NAME="$(basename -- "$LINE_1_CDS")"
+GENOME_NAME="${FILE_NAME%%_CDS*}"
+echo $GENOME_NAME
+#--------------------------------------------------------
+# Load Modules
+module purge
+module load Conda/3
+conda activate EDTA  # activate the conda environment of packages
+#--------------------------------------------------------
+# Run EDTA
+GENOME_OUT_DIR=$OUT_DATA_DIR/Blueberry/$GENOME_NAME/Annotation
+mkdir -p $GENOME_OUT_DIR
+cd $GENOME_OUT_DIR
+rm -rf *
+# Run EDTA
+perl $EDTA_DIR/EDTA.pl --genome $LINE_2_REG --cds $LINE_1_CDS --sensitive 1 --threads 15
+#--------------------------------------------------------
+# Final Supplementary Info
+end=`date +%s`
+elapsed=`expr $end - $begin`
+echo Time taken: $elapsed
