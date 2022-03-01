@@ -4,6 +4,7 @@
 # TODO fill in description
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 DEV_DATA := $(ROOT_DIR)/data
+DEV_SCRIPTS := $(ROOT_DIR)/src
 DEV_RESULTS := $(ROOT_DIR)/results
 SHELL=/bin/bash
 
@@ -67,3 +68,6 @@ generate_cds_and_fix_names:
 			# Compress the CDS file with the original names, to consere space
 			gzip $$output_filename
 	done
+
+generate_file_paths_for_EDTA_run_number_one:
+	bash file_paths_EDTA_first_run.sh

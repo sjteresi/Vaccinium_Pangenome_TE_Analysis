@@ -10,7 +10,7 @@ do
 		do
 			if [ "${a_file: -19}" == "_CDS_NewNames.fasta" ]
 			then
-				echo "$genome_name" >> $output_file
+				#echo "$genome_name" >> $output_file
 				processed_CDS_FASTA=$a_file
 				echo "$processed_CDS_FASTA" >> $output_file
 				[  -z "$processed_CDS_FASTA" ] && echo "FALURE" && exit 1
@@ -26,5 +26,5 @@ do
 
 		done
 
-	sort $output_file -o $output_file
 done
+sort $output_file -o $output_file

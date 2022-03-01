@@ -1,10 +1,10 @@
 #!/bin/bash -login
 #SBATCH -J Individual_Library_Gen
-#SBATCH --time=165:00:00
+#SBATCH --time=120:00:00
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=12
-#SBATCH --mem-per-cpu=8G
-#SBATCH --array=1-23
+#SBATCH --cpus-per-task=15
+#SBATCH --mem-per-cpu=6G
+#SBATCH --array=1-22
 #SBATCH --output=/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/logs/logs_%A_%a.out
 #--------------------------------------------------------
 # Supplementary Info
@@ -34,9 +34,9 @@ conda activate EDTA  # activate the conda environment of packages
 GENOME_OUT_DIR=$OUT_DATA_DIR/Blueberry/$GENOME_NAME/Annotation
 mkdir -p $GENOME_OUT_DIR
 cd $GENOME_OUT_DIR
-rm -r *
+rm -rf *
 # Run EDTA
-perl $EDTA_DIR/EDTA.pl --genome $LINE_2_REG --cds $LINE_1_CDS --sensitive 1 --threads 12
+perl $EDTA_DIR/EDTA.pl --genome $LINE_2_REG --cds $LINE_1_CDS --sensitive 1 --threads 15
 #--------------------------------------------------------
 # Final Supplementary Info
 end=`date +%s`
