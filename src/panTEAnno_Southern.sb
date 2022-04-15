@@ -1,13 +1,13 @@
 #!/bin/bash -login
-#SBATCH -J Cranberry_Ind_Lib
-#SBATCH --time=120:00:00
+#SBATCH -J Southern_Final_Anno
+#SBATCH --time=164:00:00
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=12
+#SBATCH --cpus-per-task=24
 #SBATCH --mem-per-cpu=16G
-#SBATCH --array=1-11%4
+#SBATCH --array=1-10%5
 #SBATCH --mail-user=teresisc@msu.edu
 #SBATCH --mail-type=ALL
-#SBATCH --output=/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/logs/Cranberry/logs_%A_%a.out
+#SBATCH --output=/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/logs/Blueberry/final_anno_log_%A_%a.out
 #--------------------------------------------------------
 # Supplementary Info
 begin=`date +%s`
@@ -15,8 +15,9 @@ echo $HOSTNAME
 echo "My Task ID:" $SLURM_ARRAY_TASK_ID
 # Define base paths
 EDTA_DIR=/mnt/research/edgerpat_lab/EDTA
-OUT_DATA_DIR=/mnt/scratch/teresisc/Blueberry_Pangenome_TE_Analysis/results
-FASTA_LIST=/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Cranberry/file_paths.txt
+OUT_DATA_DIR=/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results
+FASTA_LIST=/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/southern_file_list.txt
+PAN_LIB=/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Southern_pan_lib/liblist_Southern.txt.panTE.fa
 #--------------------------------------------------------
 # Define input paths
 SECOND=$((SLURM_ARRAY_TASK_ID*2))
@@ -33,19 +34,19 @@ module load Conda/3
 conda activate EDTA  # activate the conda environment of packages
 #--------------------------------------------------------
 # Run EDTA
+# TODO START EDITING HERE
 echo "Declaring output paths and running EDTA"
-GENOME_OUT_DIR=$OUT_DATA_DIR/Cranberry/$GENOME_NAME/Annotation
-echo "mkdir-ing " $GENOME_OUT_DIR && mkdir -p $GENOME_OUT_DIR
-echo "cd-ing into " $GENOME_OUT_DIR && cd $GENOME_OUT_DIR
-echo "Removing recursively... " && rm -rf *
+GENOME_OUT_DIR=$OUT_DATA_DIR/Blueberry/$GENOME_NAME/Final_Annotation
+mkdir -p $GENOME_OUT_DIR
+cd $GENOME_OUT_DIR
+rm -rf *
 # Run EDTA
-perl $EDTA_DIR/EDTA.pl --genome $LINE_2_REG --cds $LINE_1_CDS --sensitive 1 --threads 12 --overwrite 1
+perl $EDTA_DIR/EDTA.pl --genome $LINE_2_REG --cds $LINE_1_CDS --threads 24 --anno 1 --curatedlib $PAN_LIB --sensitive 1
 #--------------------------------------------------------
-echo "Copying the library file and tar gz-ing the annotation folder"
-cp ${GENOME_OUT_DIR}/${GENOME_NAME}_NewNames.fasta.mod.EDTA.TElib.fa ${GENOME_OUT_DIR}/../${GENOME_NAME}_NewNames.fasta.mod.EDTA.TElib.fa
-cd ${GENOME_OUT_DIR}/../
+echo "tar gz-ing the annotation folder"
+cd ../
 tar -zcf ${GENOME_OUT_DIR}.tar.gz $GENOME_OUT_DIR && rm -rf $GENOME_OUT_DIR
-mv ${GENOME_OUT_DIR}.tar.gz ${GENOME_NAME}_Preliminary_Annotation.tar.gz
+mv ${GENOME_OUT_DIR}.tar.gz ${GENOME_NAME}_Final_Annotation.tar.gz
 #--------------------------------------------------------
 # Final Supplementary Info
 end=`date +%s`

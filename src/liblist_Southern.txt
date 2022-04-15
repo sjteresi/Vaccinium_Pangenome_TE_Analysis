@@ -1,0 +1,10 @@
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Farthing/Farthing_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Raven/Raven_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Southern_Belle/Southern_Belle_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Patrecia/Patrecia_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Misty/Misty_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Kee_Krisp/Kee_Krisp_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Meadowlark/Meadowlark_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Southmoon/Southmoon_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Windsor/Windsor_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Sharp_Blue/Sharp_Blue_NewNames.fasta.mod.EDTA.TElib.fa
