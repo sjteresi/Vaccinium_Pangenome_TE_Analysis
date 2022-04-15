@@ -4,6 +4,7 @@
 # TODO fill in description
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 DEV_DATA := $(ROOT_DIR)/data
+DEV_SCRIPTS := $(ROOT_DIR)/src
 DEV_RESULTS := $(ROOT_DIR)/results
 SHELL=/bin/bash
 
@@ -15,23 +16,26 @@ SHELL=/bin/bash
 .ONESHELL:
 .SILENT:
 .SHELLFLAGS := -euo pipefail -c
-fix_regular_fasta_names:
-	for dir in $$(find /mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/data/Blueberry -mindepth 1 -type d)
+fix_regular_fasta_names_blueberry:
+	for dir in $$(find $(DEV_DATA)/Blueberry -mindepth 1 -type d)
+	do
+		gff_file=
+		fasta_file=
+		echo
+		for a_file in $$(find -L $$dir -mindepth 1 -type f )
 		do
-			for a_file in $$(find -L $$dir -mindepth 1 -type f )
-				do
-				echo $$a_file
-					if [ "$${a_file: -6}" == ".fasta" ]
-					then
-						fasta_file=$$a_file
-					fi
-				done
-				# Define genome name from dir
-				genome_name=$$(basename $$dir)
-				# Define output dir from dir and path
-				output_location=$$(realpath "$$dir/../../../results/Blueberry/$$genome_name")
-		python $(ROOT_DIR)/src/fix_fasta_names.py $$fasta_file $$genome_name $$output_location
+			if [ "$${a_file: -6}" == ".fasta" ]
+			then
+				fasta_file=$$a_file
+			fi
 		done
+		genome_name=$$(basename $$dir)
+		echo "Genome Name: $$genome_name"
+		output_location=$$(realpath "$$dir/../../../results/Blueberry/$$genome_name")
+		mkdir -p $$output_location
+		echo "Output Location: $$output_location"
+		python $(ROOT_DIR)/src/fix_fasta_names.py $$fasta_file $$genome_name $$output_location
+	done
 		
 # NOTE: Go through the directories of the blueberry genomes, 
 # and create a CDS FASTA file with sequence IDs that
@@ -39,31 +43,105 @@ fix_regular_fasta_names:
 .ONESHELL:
 .SILENT:
 .SHELLFLAGS := -euo pipefail -c
-generate_cds_and_fix_names:
-	for dir in $$(find /mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/data/Blueberry -mindepth 1 -type d)
+generate_cds_and_fix_names_blueberry:
+	for dir in $$(find $(DEV_DATA)/Blueberry -mindepth 1 -type d)
 	do
+		gff_file=
+		fasta_file=
+		echo 
 		for a_file in $$(find -L $$dir -mindepth 1 -type f)
-			do
-				if [ "$${a_file: -4}" == ".gff" ]
-				then
-					gff_file=$$a_file
-				fi
-				if [ "$${a_file: -6}" == ".fasta" ]
-				then
-					fasta_file=$$a_file
-					#echo $$fasta_file
-				fi
-			done
-			# Define genome name from dir
+		do
+			if [ "$${a_file: -4}" == ".gff" ]
+			then
+				gff_file=$$a_file
+			fi
+			if [ "$${a_file: -6}" == ".fasta" ]
+			then
+				fasta_file=$$a_file
+			fi
+		done
+		if [ -z $${gff_file} ]  && [ -z $${fasta_file} ]
+		then
+			echo "FAILURE"
+		else
 			genome_name=$$(basename $$dir)
-			# Define output dir from dir and path
+			echo "Genome Name: $$genome_name"
 			output_location=$$(realpath "$$dir/../../../results/Blueberry/$$genome_name")
-			# Define output (CDS fasta) filename from path
+			mkdir -p $$output_location
+			echo "Output Location: $$output_location"
 			output_filename="$$output_location/$${genome_name}_CDS.fasta"
-			# Begin running GFFRead
-			$$(/mnt/research/edgerpat_lab/Scotty/gffread/gffread -x $$output_filename -g $$fasta_file $$gff_file)
-			# Fix gene names in that output. They are too long, and EDTA won't like it.
+			echo "Output CDS Filename: $$output_filename"
+			/mnt/research/edgerpat_lab/Scotty/gffread/gffread -x $$output_filename -g $$fasta_file $$gff_file
 			python $(ROOT_DIR)/src/fix_cds_names.py $$output_filename $$genome_name $$output_location
-			# Compress the CDS file with the original names, to consere space
-			gzip $$output_filename
+			echo "Gzipping"
+			gzip -f $$output_filename
+		fi
 	done
+
+generate_file_paths_EDTA_first_run_blueberry:
+	bash src/file_paths_EDTA_first_run_blueberry.sh
+#-------------------------------------------------------------------------------------
+.ONESHELL:
+.SILENT:
+.SHELLFLAGS := -euo pipefail -c
+fix_regular_fasta_names_cranberry:
+	for dir in $$(find $(DEV_DATA)/Cranberry -mindepth 1 -type d)
+	do
+		gff_file=
+		fasta_file=
+		echo
+		for a_file in $$(find -L $$dir -mindepth 1 -type f )
+		do
+			if [ "$${a_file: -6}" == ".fasta" ]
+			then
+				fasta_file=$$a_file
+			fi
+		done
+		genome_name=$$(basename $$dir)
+		echo "Genome Name: $$genome_name"
+		output_location=$$(realpath "$$dir/../../../results/Cranberry/$$genome_name")
+		mkdir -p $$output_location
+		echo "Output Location: $$output_location"
+		python $(ROOT_DIR)/src/fix_fasta_names.py $$fasta_file $$genome_name $$output_location
+	done
+
+.ONESHELL:
+.SILENT:
+.SHELLFLAGS := -euo pipefail -c
+generate_cds_and_fix_names_cranberry:
+	for dir in $$(find $(DEV_DATA)/Cranberry -mindepth 1 -type d)
+	do
+		gff_file=
+		fasta_file=
+		echo 
+		for a_file in $$(find -L $$dir -mindepth 1 -type f)
+		do
+			if [ "$${a_file: -4}" == ".gff" ]
+			then
+				gff_file=$$a_file
+			fi
+			if [ "$${a_file: -6}" == ".fasta" ]
+			then
+				fasta_file=$$a_file
+			fi
+		done
+		if [ -z $${gff_file} ]  && [ -z $${fasta_file} ]
+		then
+			echo "FAILURE"
+		else
+			genome_name=$$(basename $$dir)
+			echo "Genome Name: $$genome_name"
+			output_location=$$(realpath "$$dir/../../../results/Cranberry/$$genome_name")
+			mkdir -p $$output_location
+			echo "Output Location: $$output_location"
+			output_filename="$$output_location/$${genome_name}_CDS.fasta"
+			echo "Output CDS Filename: $$output_filename"
+			/mnt/research/edgerpat_lab/Scotty/gffread/gffread -x $$output_filename -g $$fasta_file $$gff_file
+			python $(ROOT_DIR)/src/fix_cds_names.py $$output_filename $$genome_name $$output_location
+			echo "Gzipping"
+			gzip -f $$output_filename
+		fi
+	done
+
+generate_file_paths_EDTA_first_run_cranberry:
+	bash src/file_paths_EDTA_first_run_cranberry.sh

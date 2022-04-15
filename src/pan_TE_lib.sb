@@ -1,0 +1,28 @@
+#!/bin/bash -login
+#SBATCH -J Pan_Library_Gen
+#SBATCH --time=120:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=16
+#SBATCH --mem-per-cpu=4G
+#SBATCH --output=/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/logs/Pan_TE_Lib.out
+#--------------------------------------------------------
+#--------------------------------------------------------
+
+#--------------------------------------------------------
+# Load Modules
+module purge
+module load Conda/3
+conda activate EDTA  # activate the conda environment of packages
+#--------------------------------------------------------
+# Run EDTA pan TE lib script
+GENOME_OUT_DIR=$OUT_DATA_DIR/Blueberry/$GENOME_NAME/Annotation
+mkdir -p $GENOME_OUT_DIR
+cd $GENOME_OUT_DIR
+rm -rf *
+# Run EDTA
+perl $EDTA_DIR/util/make_panTElib.pl -liblist $TODO -threads 16
+#--------------------------------------------------------
+# Final Supplementary Info
+end=`date +%s`
+elapsed=`expr $end - $begin`
+echo Time taken: $elapsed
