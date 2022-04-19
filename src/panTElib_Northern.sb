@@ -25,7 +25,7 @@ conda activate EDTA  # activate the conda environment of packages
 #--------------------------------------------------------
 # Run make_panTElib.pl
 echo "Declaring output paths and running EDTA"
-mkdir $OUT_DATA_DIR
+mkdir -p $OUT_DATA_DIR
 cd $OUT_DATA_DIR
 perl $EDTA_DIR/util/make_panTElib.pl -liblist $LIB_LIST -threads 12
 #--------------------------------------------------------
