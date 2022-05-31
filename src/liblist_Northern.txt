@@ -1,0 +1,12 @@
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Brigitta_Blue/Brigitta_Blue_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Chandler/Chandler_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Draper/Draper_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Duke/Duke_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Earlie_Blue/Earlie_Blue_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Elliot/Elliot_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Harding/Harding_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Legacy/Legacy_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Pioneer/Pioneer_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Rubel/Rubel_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Stanley/Stanley_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Weymouth/Weymouth_NewNames.fasta.mod.EDTA.TElib.fa

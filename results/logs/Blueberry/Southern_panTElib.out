@@ -1,0 +1,24 @@
+amr-108
+My Task ID:
+Declaring output paths and running EDTA
+
+Wed Apr 27 13:39:49 EDT 2022
+Start to combine individual TE libraries from /mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/src/liblist_Southern.txt.
+Parameters to cluster sequences:
+	Minimum identity: 80
+	Minimum coverage: 0.95
+	Minimum length: 80
+Working on individual library: Farthing_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Raven_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Southern_Belle_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Patrecia_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Misty_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Kee_Krisp_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Meadowlark_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Southmoon_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Windsor_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Sharp_Blue_NewNames.fasta.mod.EDTA.TElib.fa
+Cluster all library sequences...
+Done!
+Fri Apr 29 06:49:19 EDT 2022
+Time taken: 148194

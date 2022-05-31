@@ -1,0 +1,11 @@
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Cranberry/Black_veil/Black_veil_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Cranberry/Budds_Blues/Budds_Blues_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Cranberry/Cranmoor_Natives/Cranmoor_Natives_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Cranberry/Cumberland/Cumberland_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Cranberry/Early_Black/Early_Black_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Cranberry/Early_Richard/Early_Richard_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Cranberry/Garwood_Bell/Garwood_Bell_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Cranberry/Lemunyon/Lemunyon_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Cranberry/Native_BB/Native_BB_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Cranberry/Stanley_US92/Stanley_US92_NewNames.fasta.mod.EDTA.TElib.fa
+/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Cranberry/vmacro/vmacro_NewNames.fasta.mod.EDTA.TElib.fa

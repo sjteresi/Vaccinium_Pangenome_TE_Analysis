@@ -1,0 +1,27 @@
+slurmstepd: error: couldn't chdir to `/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Cranberry/Cranberry_pan_lib/': No such file or directory: going to /tmp instead
+slurmstepd: error: couldn't chdir to `/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Cranberry/Cranberry_pan_lib/': No such file or directory: going to /tmp instead
+amr-109
+My Task ID:
+Declaring output paths and running EDTA
+
+Wed Apr 20 13:15:05 EDT 2022
+Start to combine individual TE libraries from /mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/src/liblist_Cranberry.txt.
+Parameters to cluster sequences:
+	Minimum identity: 80
+	Minimum coverage: 0.95
+	Minimum length: 80
+Working on individual library: Black_veil_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Budds_Blues_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Cranmoor_Natives_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Cumberland_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Early_Black_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Early_Richard_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Garwood_Bell_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Lemunyon_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Native_BB_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Stanley_US92_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: vmacro_NewNames.fasta.mod.EDTA.TElib.fa
+Cluster all library sequences...
+Done!
+Wed Apr 20 18:13:40 EDT 2022
+Time taken: 17933

@@ -1,0 +1,27 @@
+amr-108
+My Task ID:
+Declaring output paths and running EDTA
+mkdir: cannot create directory ‘/mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/results/Blueberry/Northern_pan_lib/’: File exists
+
+Fri Apr 15 17:02:44 EDT 2022
+Start to combine individual TE libraries from /mnt/research/edgerpat_lab/Scotty/Blueberry_Pangenome_TE_Analysis/src/liblist_Northern.txt.
+Parameters to cluster sequences:
+	Minimum identity: 80
+	Minimum coverage: 0.95
+	Minimum length: 80
+Working on individual library: Brigitta_Blue_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Chandler_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Draper_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Duke_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Earlie_Blue_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Elliot_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Harding_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Legacy_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Pioneer_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Rubel_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Stanley_NewNames.fasta.mod.EDTA.TElib.fa
+Working on individual library: Weymouth_NewNames.fasta.mod.EDTA.TElib.fa
+Cluster all library sequences...
+Done!
+Mon Apr 18 00:05:14 EDT 2022
+Time taken: 198152
