@@ -26,6 +26,9 @@ module load Conda/3
 conda activate EDTA  # activate the conda environment of packages
 #--------------------------------------------------------
 # Run EDTA
+# NOTE this script was necessary because Stanley took so long to run as
+# part of the array job, so I just wrote its own custom script.
+# The arguments to prepare the library file are the same.
 echo "Declaring output paths and running EDTA"
 GENOME_OUT_DIR=$OUT_DATA_DIR/Cranberry/$GENOME_NAME/Annotation
 echo "mkdir-ing " $GENOME_OUT_DIR && mkdir -p $GENOME_OUT_DIR
